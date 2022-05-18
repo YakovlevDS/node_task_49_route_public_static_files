@@ -1,12 +1,31 @@
-let nodePath = process.argv[0];
-let appPath = process.argv[1];
-let name = process.argv[2];
-let age = process.argv[3];
+// const express = require("express");
+ 
+// const app = express();
+ 
+// app.use(express.static(__dirname + "/public"));
+ 
+// app.use("/", function(request, response){
+     
+//     response.send("<h1>Главная</h1>");
+// });
+ 
+// app.listen(3000);
 
-console.log("nodePath: " + nodePath);
-console.log("appPath: " + appPath);
-console.log();
-console.log("name: " + name);
-console.log("age: " + age);
+// http://localhost:3000/about.html
 
-// node app.js Tom 23
+
+// Дополнительно мы можем изменить путь к каталогу статических файлов:
+const express = require("express");
+ 
+const app = express();
+ 
+app.use("/static", express.static(__dirname + "/public"));
+ 
+app.use("/", function(request, response){
+     
+    response.send("<h1>Главная страница</h1>");
+});
+ 
+app.listen(3000);
+
+// http://localhost:3000/static/about.html
